@@ -6,6 +6,12 @@ function PlayerController() {
     playerService.getPlayersByTeam(ready)
     playerService.getPlayersByPosition(ready)
 
+    this.filter = function filter(teamName){
+    
+       console.log(playerService.getPlayersByTeam(teamName))
+        
+    }
+
     function ready() {
         loading = false; //stop the spinner
 
@@ -16,7 +22,7 @@ function PlayerController() {
         })
     }
     //^^^^^^^^^^^^^^^^^^^PRIVATE PARTS^^^^^^^^^^^^^^^
-
+// this.addToMyTeam = function addToMyTeam(){}
     
         //-------------------PUBLIC PARTS----------------
        //^^^^^^^^^^^^^^^^^^^PUBLIC PARTS^^^^^^^^^^^^^^^^

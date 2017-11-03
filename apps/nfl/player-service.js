@@ -1,7 +1,7 @@
 function PlayerService(ready) {
     var playersData = []
-    var myTeam =[]
-    
+    var myTeam = []
+
     function loadPlayersData() {
 
         //Lets check the localstorage for the data before making the call.
@@ -35,11 +35,13 @@ function PlayerService(ready) {
 
     this.getPlayersByTeam = function getPlayersByTeam(teamName) {
         //return an array of all players who match the given teamName.
-        return playersData.filter(function (player) {
-            if (player.team == teamName) {
-                return JSON.parse(JSON.stringify(playersData))
+        return JSON.parse(JSON.stringify(playersData.filter(function (player) {
+            for (var i = 0; i < playersData.length; i++) {
+                if (player.pro_team == teamName) {
+                    return playersData
+                }
             }
-        })
+        })))
     }
     this.getPlayersByPosition = function getPlayersByPosition(position) {
         //return an array of all players who match the given position.
@@ -49,8 +51,9 @@ function PlayerService(ready) {
             }
         })
     }
-    this.addToMyTeam = function addToMyTeam(){
-        if(myTeam.length <11){
+    this.addToMyTeam = function addToMyTeam() {
+        if (myTeam.length < 11) {
+
 
         }
     }
@@ -59,7 +62,7 @@ function PlayerService(ready) {
     console.log(playersData)
 }
 
-    
+
 /*---------NFL API STRUCTURE----------
 data:{
     body:{
