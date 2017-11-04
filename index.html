@@ -17,55 +17,57 @@
         <div class="panel">
             <header>My NFL Roster</header>
             <div id="player-roster">
-                <button id="dummy-button" onclick="app.controllers.playerController.filter('SF')"></button>
+                <button id="dummy-button" onclick="app.controllers.playerController.filterTeam('SF')"></button>
+                <button id="dummy-button2" onclick="app.controllers.playerController.filterPosition('LB')"></button>
                 <select id="">
-                    <option id="Arizona-C">Arizona Cardinals</option>
-                    <option id="Atlanta-A">Atlanta Falcons</option>
-                    <option id="Baltimore-B">Baltimore Ravens</option>
-                    <option id="Buffalo-B">Buffalo Bills</option>
-                    <option id="Carolina-P">Carolina Panthers</option>
-                    <option id="Chicago-B">Chicago Bears</option>
-                    <option id="Cincinatti-B">Cincinatti Bengals</option>
-                    <option id="Cleveland-B">Cleveland Browns</option>
-                    <option id="Dallas-C">Dallas Cowboys</option>
-                    <option id="Denver-B">Denver Broncos</option>
-                    <option id="Detroit-L">Detroit Lions</option>
-                    <option id="Green-Bay-P">Green Bay Packers</option>
-                    <option id="Houston-T">Houston Texans</option>
-                    <option id="Indianapolis-C">Indianapolis Colts</option>
-                    <option id="Jacksonville-J">Jacksonville Jaguars</option>
-                    <option id="Kansas-City-C">Kansas City Chiefs</option>
-                    <option id="Los-Angeles-C">Los Angeles Chargers</option>
-                    <option id="Los-Angeles-R">Los Angeles Rams</option>
-                    <option id="Miami-D">Miami Dolphins</option>
-                    <option id="Minnesota-V">Minnesota Vikings</option>
-                    <option id="New-England-P">New England Patriots</option>
-                    <option id="New-Orleans-S">New Orleans Saints</option>
-                    <option id="New-York-G">New York Giants</option>
-                    <option id="New-York-J">New York Jets</option>
-                    <option id="Oakland-R">Oakland Raiders</option>
-                    <option id="Philadelphia-E">Philadelphia Eagles</option>
-                    <option id="Pittsburgh-S">Pittsburgh Steelers</option>
-                    <option id="San-Francisco-49">San Francisco 49ers</option>
-                    <option id="Seattle-S">Seattle Seahawks</option>
-                    <option id="Tampa-Bay-B">Tampa Bay Buccaneers</option>
-                    <option id="Tennessee-T">Tennessee Titans</option>
-                    <option id="Washington-R">Washington Redskins</option>
+                    <option id="ARI">Arizona Cardinals</option>
+                    <option id="ATL">Atlanta Falcons</option>
+                    <option id="BAL">Baltimore Ravens</option>
+                    <option id="BUF">Buffalo Bills</option>
+                    <option id="CAR">Carolina Panthers</option>
+                    <option id="CHI">Chicago Bears</option>
+                    <option id="CIN">Cincinatti Bengals</option>
+                    <option id="CLE">Cleveland Browns</option>
+                    <option id="DAL">Dallas Cowboys</option>
+                    <option id="DEN">Denver Broncos</option>
+                    <option id="DET">Detroit Lions</option>
+                    <option id="GB">Green Bay Packers</option>
+                    <option id="HOU">Houston Texans</option>
+                    <option id="IND">Indianapolis Colts</option>
+                    <option id="JAC">Jacksonville Jaguars</option>
+                    <option id="KC">Kansas City Chiefs</option>
+                    <option id="LAC">Los Angeles Chargers</option>
+                    <option id="LAR">Los Angeles Rams</option>
+                    <option id="MIA">Miami Dolphins</option>
+                    <option id="MIN">Minnesota Vikings</option>
+                    <option id="NE">New England Patriots</option>
+                    <option id="NO">New Orleans Saints</option>
+                    <option id="NYG">New York Giants</option>
+                    <option id="NYJ">New York Jets</option>
+                    <option id="OAK">Oakland Raiders</option>
+                    <option id="PHI">Philadelphia Eagles</option>
+                    <option id="PIT">Pittsburgh Steelers</option>
+                    <option id="SF">San Francisco 49ers</option>
+                    <option id="SEA">Seattle Seahawks</option>
+                    <option id="TB">Tampa Bay Buccaneers</option>
+                    <option id="TEN">Tennessee Titans</option>
+                    <option id="WAS">Washington Redskins</option>
                 </select>
+                <select id="">
+                    <option id="QB">Quarterback</option>
+                    <option id="RB">Running Back</option>
+                    <option id="WR">Wide Receiver</option>
+                    <option id="TE">Tight End</option>
+                    <option id="K">Placekicker</option>
+                    <option id="D">Defense</option>
+                    <option id="ST">Special Teams</option>
+                </select>
+                <form id="name-form">
+                    <input type="text" name="" id="name-field" value="Search by Last Name">
+                    <input type="button" onclick="app.controllers.playerController.filterName()" name="" id="" value="Search"> 
+                </form>
                 <div class="player-card">
                     <img src="http://s.nflcdn.com/static/content/public/image/fantasy/transparent/200x200/" alt="">
-                    <!-- <form action="/action_page.php">
-                        Player Name:
-                        <br>
-                        <input type="text" name="" value="Football"> 
-                        <br> Position:
-                        <br>
-                        <input type="text" name="" value="Superstar">
-                        <br> Team:
-                        <br>
-                        <input type="text" value="Our Team">
-                        <br>
-                        <input type="submit" name=""> -->
                     </form>
                 </div>
 

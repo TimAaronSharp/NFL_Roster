@@ -1,7 +1,6 @@
 function PlayerService(ready) {
     var playersData = []
     var myTeam = []
-
     function loadPlayersData() {
 
         //Lets check the localstorage for the data before making the call.
@@ -35,19 +34,25 @@ function PlayerService(ready) {
 
     this.getPlayersByTeam = function getPlayersByTeam(teamName) {
         //return an array of all players who match the given teamName.
-        return JSON.parse(JSON.stringify(playersData.filter(function (player) {
-            for (var i = 0; i < playersData.length; i++) {
-                if (player.pro_team == teamName) {
-                    return playersData
-                }
+        return playersData.filter(function (player) {
+            if (player.pro_team == teamName) {
+                return playersData
             }
-        })))
+        })
     }
     this.getPlayersByPosition = function getPlayersByPosition(position) {
         //return an array of all players who match the given position.
         return playersData.filter(function (player) {
             if (player.position == position) {
-                return JSON.parse(JSON.stringify(playersData))
+                return playersData
+            }
+        })
+    }
+    this.getPlayersByName = function getPlayersByName(name) {
+        //return an array of all players who match the given position.
+        return playersData.filter(function (player) {
+            if (player.lastname == name) {
+                return playersData
             }
         })
     }
@@ -60,6 +65,7 @@ function PlayerService(ready) {
     //^^^^^^^^^^^^^^^^^^^PUBLIC PARTS^^^^^^^^^^^^^^^^
     loadPlayersData(); //call the function above every time we create a new service
     console.log(playersData)
+    console.log(positionCheck)
 }
 
 
