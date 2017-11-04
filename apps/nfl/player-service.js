@@ -56,16 +56,29 @@ function PlayerService(ready) {
             }
         })
     }
-    this.addToMyTeam = function addToMyTeam() {
-        if (myTeam.length < 11) {
+    this.getCurrentPlayersData = function getCurrentPlayersData(){
+        return JSON.parse(JSON.stringify(playersData))
+    }
+    // this.getPlayers = function getPlayers(){
 
-
+    // }
+    this.addToMyTeam = function addToMyTeam(id) {
+        if (myTeam.length < 16) {
+            for (var i = 0; i < playersData.length; i++) {
+                if (playersData[i].id == id) {
+                    myTeam.push(playersData[i])
+                    playersData.splice(i, 1)
+                    console.log(playersData)
+                }
+            }
         }
+        // getCurrentPlayersData()
+        console.log(playersData)
+        console.log(myTeam)
     }
     //^^^^^^^^^^^^^^^^^^^PUBLIC PARTS^^^^^^^^^^^^^^^^
     loadPlayersData(); //call the function above every time we create a new service
     console.log(playersData)
-    console.log(positionCheck)
 }
 
 

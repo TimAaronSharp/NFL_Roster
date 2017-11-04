@@ -2,8 +2,11 @@ body{
     background: lightgray;
 }
 .player-card{
-    display: inline-block;
+    min-height: 380px;
     border: 5px solid black;
+}
+.player-card button{
+    vertical-align: bottom;
 }
 #name-form{
     display:inline-block;

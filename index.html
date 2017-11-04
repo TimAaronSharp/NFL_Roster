@@ -20,6 +20,7 @@
                 <button id="dummy-button" onclick="app.controllers.playerController.filterTeam('SF')"></button>
                 <button id="dummy-button2" onclick="app.controllers.playerController.filterPosition('LB')"></button>
                 <select id="">
+                    <option id="SBT">Search by Team</option>
                     <option id="ARI">Arizona Cardinals</option>
                     <option id="ATL">Atlanta Falcons</option>
                     <option id="BAL">Baltimore Ravens</option>
@@ -54,6 +55,7 @@
                     <option id="WAS">Washington Redskins</option>
                 </select>
                 <select id="">
+                    <option id="SBP">Search by Position</option>
                     <option id="QB">Quarterback</option>
                     <option id="RB">Running Back</option>
                     <option id="WR">Wide Receiver</option>
@@ -61,15 +63,19 @@
                     <option id="K">Placekicker</option>
                     <option id="D">Defense</option>
                     <option id="ST">Special Teams</option>
+                    <!-- C, D, DB, DL, DST, K, LB, P, QB, RB, ST, TE, TQB, WR -->
                 </select>
+                <div class="row" id="image-area">
+
+                </div>
                 <form id="name-form">
                     <input type="text" name="" id="name-field" value="Search by Last Name">
-                    <input type="button" onclick="app.controllers.playerController.filterName()" name="" id="" value="Search"> 
+                    <input type="button" onclick="app.controllers.playerController.filterName()" name="" id="" value="Search">
                 </form>
-                <div class="player-card">
-                    <img src="http://s.nflcdn.com/static/content/public/image/fantasy/transparent/200x200/" alt="">
+                
+                    <!-- <img src="http://s.nflcdn.com/static/content/public/image/fantasy/transparent/200x200/" alt=""> -->
                     </form>
-                </div>
+                
 
             </div>
 
