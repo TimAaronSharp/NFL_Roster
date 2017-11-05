@@ -57,10 +57,26 @@ function PlayerService(ready) {
             }
         })
     }
-    this.getCurrentFilter = function getCurrentFilter(){
+    this.getNames = function getNames() {
+        var filteredNames = []
+        // for (var i = 0; i < playersData.length; i++) {
+        for (var key in playersData) {
+            var element = playersData[key]
+            for (var prop in element) {
+                if (prop == "fullname") {
+                    filteredNames.push(element)
+                }
+                // console.log(filteredNames)
+            }
+        }
+        console.log(filteredNames)
+        return JSON.parse(JSON.stringify(filteredNames))
+    }
+    // }
+    this.getCurrentFilter = function getCurrentFilter() {
         return JSON.parse(JSON.stringify(playersData))
     }
-    this.getMyTeam = function getMyTeam(){
+    this.getMyTeam = function getMyTeam() {
         return JSON.parse(JSON.stringify(myTeam))
     }
     // this.getPlayers = function getPlayers(){

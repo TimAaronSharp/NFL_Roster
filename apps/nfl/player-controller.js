@@ -17,10 +17,26 @@ function PlayerController() {
             var teamSF = playerService.getPlayersByTeam("SF");
         })
     }
+    function drawNameList(){
+        var names = playerService.getNames()
+        debugger
+        var nameElem = document.getElementById('nameDropdown')
+        nameElem.innerHTML = ''
+        var nameTemplate = ''
+        for (var i = 0; i < names.length; i++) {
+            var name = names[i];
+            nameTemplate += `
+            <option value="lastname" id="${name.id}>${name.fullname}"></option>
+            
+            `
+        }
+        nameElem.innerHTML = nameTemplate
+    }
+    drawNameList()
 
     function updateRoster(currentPlayerData) {
         //debugger
-        var elem = document.getElementById('image-area')
+        var elem = document.getElementById('player-roster')
         elem.innerHTML = ''
         var playerTemplate = ''
         for (var i in currentPlayerData) {
@@ -67,6 +83,13 @@ function PlayerController() {
     
     //-------------------PUBLIC PARTS----------------
 
+    this.handleSelect = function handleSelect(myForm){
+        var selIndex = myForm.nameList.selectedIndex
+        var selValue = myForm.nameList.options[selIndex].value
+        var selId = myForm.nameList.options[selIndex].id
+        this.searchFor(selValue, selId)
+    }
+
     this.searchFor = function searchFor(searchType, searchValue){
         switch(searchType){
             case 'team':
@@ -108,4 +131,5 @@ function PlayerController() {
     }
     //^^^^^^^^^^^^^^^^^^^PUBLIC PARTS^^^^^^^^^^^^^^^^
     //updateRoster(currentFilter)
+    
 }

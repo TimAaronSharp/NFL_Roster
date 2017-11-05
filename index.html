@@ -14,80 +14,95 @@
 
 <body>
     <div class="container">
-        <div class="panel">
-            <header>My NFL Roster</header>
-            <div id="player-roster">
-                <button id="dummy-button" onclick="app.controllers.playerController.searchFor('team', 'SF')">Team</button>
-                <button id="dummy-button2" onclick="app.controllers.playerController.searchFor('position', 'LB')">Position</button>
-                <button id="dummy-button" onclick="app.controllers.playerController.searchFor('lastname', 'Adams')">Name</button>
-                <select id="" onchange="app.controllers.playerController.searchFor('team', 'searchValue')">
-                    <option id="SBT">Search by Team</option>
-                    <option id="ARI" value="">Arizona Cardinals</option>
-                    <option id="ATL">Atlanta Falcons</option>
-                    <option id="BAL">Baltimore Ravens</option>
-                    <option id="BUF">Buffalo Bills</option>
-                    <option id="CAR">Carolina Panthers</option>
-                    <option id="CHI">Chicago Bears</option>
-                    <option id="CIN">Cincinatti Bengals</option>
-                    <option id="CLE">Cleveland Browns</option>
-                    <option id="DAL">Dallas Cowboys</option>
-                    <option id="DEN">Denver Broncos</option>
-                    <option id="DET">Detroit Lions</option>
-                    <option id="GB">Green Bay Packers</option>
-                    <option id="HOU">Houston Texans</option>
-                    <option id="IND">Indianapolis Colts</option>
-                    <option id="JAC">Jacksonville Jaguars</option>
-                    <option id="KC">Kansas City Chiefs</option>
-                    <option id="LAC">Los Angeles Chargers</option>
-                    <option id="LAR">Los Angeles Rams</option>
-                    <option id="MIA">Miami Dolphins</option>
-                    <option id="MIN">Minnesota Vikings</option>
-                    <option id="NE">New England Patriots</option>
-                    <option id="NO">New Orleans Saints</option>
-                    <option id="NYG">New York Giants</option>
-                    <option id="NYJ">New York Jets</option>
-                    <option id="OAK">Oakland Raiders</option>
-                    <option id="PHI">Philadelphia Eagles</option>
-                    <option id="PIT">Pittsburgh Steelers</option>
-                    <option id="SF">San Francisco 49ers</option>
-                    <option id="SEA">Seattle Seahawks</option>
-                    <option id="TB">Tampa Bay Buccaneers</option>
-                    <option id="TEN">Tennessee Titans</option>
-                    <option id="WAS">Washington Redskins</option>
-                </select>
-                <select id="">
-                    <option id="SBP">Search by Position</option>
-                    <option id="QB">Quarterback</option>
-                    <option id="RB">Running Back</option>
-                    <option id="WR">Wide Receiver</option>
-                    <option id="TE">Tight End</option>
-                    <option id="K">Placekicker</option>
-                    <option id="D">Defense</option>
-                    <option id="ST">Special Teams</option>
-                    <!-- C, D, DB, DL, DST, K, LB, P, QB, RB, ST, TE, TQB, WR -->
-                </select>
-                <div class="row" id="image-area">
-                    
-
-                </div>
-                <form id="name-form">
-                    <input type="text" name="" id="name-field" value="Search by Last Name">
-                    <input type="button" onclick="app.controllers.playerController.filterName()" name="" id="" value="Search">
-                </form>
-
-                <!-- <img src="http://s.nflcdn.com/static/content/public/image/fantasy/transparent/200x200/" alt=""> -->
+        <!-- <div class="panel"> -->
+        <header>My NFL Roster</header>
+        <form name="teamForm" action="">
+            <select name="nameList" class="nameList" onchange="app.controllers.playerController.handleSelect(this.form)">
+                <option id="SBT">Search by Team</option>
+                <option value="team" id="ARI">Arizona Cardinals</option>
+                <option value="team" id="ATL">Atlanta Falcons</option>
+                <option value="team" id="BAL">Baltimore Ravens</option>
+                <option value="team" id="BUF">Buffalo Bills</option>
+                <option value="team" id="CAR">Carolina Panthers</option>
+                <option value="team" id="CHI">Chicago Bears</option>
+                <option value="team" id="CIN">Cincinatti Bengals</option>
+                <option value="team" id="CLE">Cleveland Browns</option>
+                <option value="team" id="DAL">Dallas Cowboys</option>
+                <option value="team" id="DEN">Denver Broncos</option>
+                <option value="team" id="DET">Detroit Lions</option>
+                <option value="team" id="GB">Green Bay Packers</option>
+                <option value="team" id="HOU">Houston Texans</option>
+                <option value="team" id="IND">Indianapolis Colts</option>
+                <option value="team" id="JAC">Jacksonville Jaguars</option>
+                <option value="team" id="KC">Kansas City Chiefs</option>
+                <option value="team" id="LAC">Los Angeles Chargers</option>
+                <option value="team" id="LAR">Los Angeles Rams</option>
+                <option value="team" id="MIA">Miami Dolphins</option>
+                <option value="team" id="MIN">Minnesota Vikings</option>
+                <option value="team" id="NE">New England Patriots</option>
+                <option value="team" id="NO">New Orleans Saints</option>
+                <option value="team" id="NYG">New York Giants</option>
+                <option value="team" id="NYJ">New York Jets</option>
+                <option value="team" id="OAK">Oakland Raiders</option>
+                <option value="team" id="PHI">Philadelphia Eagles</option>
+                <option value="team" id="PIT">Pittsburgh Steelers</option>
+                <option value="team" id="SF">San Francisco 49ers</option>
+                <option value="team" id="SEA">Seattle Seahawks</option>
+                <option value="team" id="TB">Tampa Bay Buccaneers</option>
+                <option value="team" id="TEN">Tennessee Titans</option>
+                <option value="team" id="WAS">Washington Redskins</option>
+            </select>
+        </form>
+        <form name="positionform" action="">
+            <select name="nameList" class="nameList" onchange="app.controllers.playerController.handleSelect(this.form)">
+                <option value="position" id="SBP">Search by Position</option>
+                <option value="position" id="QB">Quarterback</option>
+                <option value="position" id="TQB">Team Quarterback</option>
+                <option value="position" id="WR">Wide Receiver</option>
+                <option value="position" id="RB">Running Back</option>
+                <option value="position" id="C">Center</option>
+                <option value="position" id="TE">Tight End</option>
+                <option value="position" id="K">Placekicker</option>
+                <option value="position" id="P">Punter</option>
+                <option value="position" id="D">Defensive Player</option>
+                <option value="position" id="DL">Defensive Lineman</option>
+                <option value="position" id="LB">Linebacker</option>
+                <option value="position" id="DB">Defensive Back</option>
+                <option value="position" id="ST">Special Teams</option>
+                <option value="position" id="DST">Defense/Special Teams</option>
+                <option value="position" id="''">???</option>
+                <!-- C^, D^, DB^, DL^, DST^, K^, LB^, P^, QB^, RB^, ST^, TE^, TQB^, WR^ ???^-->
+            </select>
+        </form>
+        <form name="nameForm" action="">
+            <select name="nameList" id="nameDropdown" onchange="app.controllers.playerController.handleSelect(this.form)">
                 
+            </select>
+        </form>
+        <div id="player-roster">
+            <!-- <button id="dummy-button" onclick="app.controllers.playerController.searchFor('team', 'SF')">Team</button>
+                <button id="dummy-button2" onclick="app.controllers.playerController.searchFor('position', 'LB')">Position</button>
+                <button id="dummy-button" onclick="app.controllers.playerController.searchFor('lastname', 'Adams')">Name</button> -->
+            <!-- "app.controllers.playerController.searchFor('team', 'searchValue')" -->
+
+            <div class="row" id="image-area">
 
 
             </div>
 
-            <div id="my-team">
-                <div class="row" id="my-area">
+            <!-- <img src="http://s.nflcdn.com/static/content/public/image/fantasy/transparent/200x200/" alt=""> -->
 
-                </div>
-            </div>
+
 
         </div>
+
+        <div id="my-team">
+            <div class="row" id="my-area">
+
+            </div>
+        </div>
+
+        <!-- </div> -->
 
     </div>
 
