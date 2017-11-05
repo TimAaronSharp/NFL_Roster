@@ -17,11 +17,12 @@
         <div class="panel">
             <header>My NFL Roster</header>
             <div id="player-roster">
-                <button id="dummy-button" onclick="app.controllers.playerController.filterTeam('SF')">Team</button>
-                <button id="dummy-button2" onclick="app.controllers.playerController.filterPosition('LB')">Position</button>
-                <select id="">
+                <button id="dummy-button" onclick="app.controllers.playerController.searchFor('team', 'SF')">Team</button>
+                <button id="dummy-button2" onclick="app.controllers.playerController.searchFor('position', 'LB')">Position</button>
+                <button id="dummy-button" onclick="app.controllers.playerController.searchFor('lastname', 'Adams')">Name</button>
+                <select id="" onchange="app.controllers.playerController.searchFor('team', 'searchValue')">
                     <option id="SBT">Search by Team</option>
-                    <option id="ARI" value="" onclick="app.controllers.playerController.filterTeam('ARI')">Arizona Cardinals</option>
+                    <option id="ARI" value="">Arizona Cardinals</option>
                     <option id="ATL">Atlanta Falcons</option>
                     <option id="BAL">Baltimore Ravens</option>
                     <option id="BUF">Buffalo Bills</option>

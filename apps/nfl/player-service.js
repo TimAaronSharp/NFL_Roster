@@ -33,6 +33,7 @@ function PlayerService(ready) {
     //-------------------PUBLIC PARTS----------------
 
     this.getPlayersByTeam = function getPlayersByTeam(teamName) {
+        // debugger
         //return an array of all players who match the given teamName.
         return playersData.filter(function (player) {
             if (player.pro_team == teamName) {
@@ -72,6 +73,20 @@ function PlayerService(ready) {
                     myTeam.push(playersData[i])
                     playersData.splice(i, 1)
                     console.log(playersData)
+                }
+            }
+        }
+        // getCurrentPlayersData()
+        //console.log(playersData)
+        console.log(myTeam)
+    }
+    this.removeFromMyTeam = function removeFromMyTeam(id) {
+        if (myTeam.length > 0) {
+            for (var i = 0; i < myTeam.length; i++) {
+                if (myTeam[i].id == id) {
+                    playersData.push(myTeam[i])
+                    myTeam.splice(i, 1)
+                    console.log(myTeam)
                 }
             }
         }

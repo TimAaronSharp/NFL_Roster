@@ -2,7 +2,8 @@ function PlayerController() {
     //-------------------PRIVATE PARTS---------------
     var loading = true; //Start the spinner
     var playerService = new PlayerService(ready);
-    var currentFilter = []
+    var currentSearchType = ''
+    var currentSearchValue = ''
 
     // playerService.getPlayersByTeam(ready)
     // playerService.getPlayersByPosition(ready)
@@ -39,7 +40,7 @@ function PlayerController() {
         }
     }
     function updateMyTeam() {
-        debugger
+        // debugger
         var myPlayers = playerService.getMyTeam()
         var myElem = document.getElementById('my-area')
         myElem.innerHTML = ''
@@ -53,7 +54,7 @@ function PlayerController() {
             <h3>${myPlayer.fullname}</h3>
             <h5>Team: ${myPlayer.pro_team}</h5>
             <h5>Pos: ${myPlayer.position}</h5>
-            <button id="${myPlayer.id}" onclick="app.controllers.playerController.addToMyTeam('${myPlayer.id}')">Add to Team</button>
+            <button id="${myPlayer.id}" onclick="app.controllers.playerController.removeFromMyTeam('${myPlayer.id}')">Remove From Team</button>
             </div>
 
             `
@@ -65,29 +66,45 @@ function PlayerController() {
 
     
     //-------------------PUBLIC PARTS----------------
-    this.filterTeam = function filterTeam(teamName) {
-        currentFilter = playerService.getPlayersByTeam(teamName)
-        updateRoster(currentFilter)
-        // console.log(playerService.getPlayersByTeam(teamName))
-        console.log(currentFilter)
-        return currentFilter
-    }
-    this.filterPosition = function filterPosition(position) {
-        playerService.getPlayersByPosition(position)
-        console.log(playerService.getPlayersByPosition(position))
-    }
-    this.filterName = function filterName(name) {
-        playerService.getPlayersByName(name)
-        console.log(playerService.getPlayersByName(name)) //look into HTMLInput.value or something like that
+
+    this.searchFor = function searchFor(searchType, searchValue){
+        switch(searchType){
+            case 'team':
+            currentSearchType = searchType
+            currentSearchValue = searchValue
+            updateRoster(playerService.getPlayersByTeam(searchValue))
+            break;
+
+            case 'position':
+            currentSearchType = searchType
+            currentSearchValue = searchValue
+            playerService.getPlayersByPosition(searchValue)
+            updateRoster(playerService.getPlayersByPosition(searchValue))
+            break;
+
+            case 'lastname':
+            currentSearchType = searchType
+            currentSearchValue = searchValue
+            playerService.getPlayersByName(searchValue)
+            updateRoster(playerService.getPlayersByName(searchValue))
+            break;
+             
+        }
     }
 
     this.addToMyTeam = function addToMyTeam(id){
-        playerService.addToMyTeam(id) //NEED TO GET THE CURRENTFILTER TO UPDATE CORRECTLY
-        playerService.getPlayersByTeam()
-        updateRoster(currentFilter)
+        playerService.addToMyTeam(id)
+        
+        this.searchFor(currentSearchType, currentSearchValue)
         updateMyTeam()
-        // updateRoster(filterTeam(teamName))
-        console.log(currentFilter)
+        // console.log(currentFilter)
+    }
+    this.removeFromMyTeam = function removeFromMyTeam(id){
+        playerService.removeFromMyTeam(id)
+        
+        this.searchFor(currentSearchType, currentSearchValue)
+        updateMyTeam()
+        // console.log(currentFilter)
     }
     //^^^^^^^^^^^^^^^^^^^PUBLIC PARTS^^^^^^^^^^^^^^^^
     //updateRoster(currentFilter)
