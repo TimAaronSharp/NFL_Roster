@@ -56,8 +56,11 @@ function PlayerService(ready) {
             }
         })
     }
-    this.getCurrentPlayersData = function getCurrentPlayersData(){
+    this.getCurrentFilter = function getCurrentFilter(){
         return JSON.parse(JSON.stringify(playersData))
+    }
+    this.getMyTeam = function getMyTeam(){
+        return JSON.parse(JSON.stringify(myTeam))
     }
     // this.getPlayers = function getPlayers(){
 
@@ -73,7 +76,7 @@ function PlayerService(ready) {
             }
         }
         // getCurrentPlayersData()
-        console.log(playersData)
+        //console.log(playersData)
         console.log(myTeam)
     }
     //^^^^^^^^^^^^^^^^^^^PUBLIC PARTS^^^^^^^^^^^^^^^^

@@ -18,7 +18,7 @@ function PlayerController() {
     }
 
     function updateRoster(currentPlayerData) {
-        // debugger
+        //debugger
         var elem = document.getElementById('image-area')
         elem.innerHTML = ''
         var playerTemplate = ''
@@ -35,17 +35,42 @@ function PlayerController() {
             </div>
 
             `
+            elem.innerHTML = playerTemplate
         }
-        elem.innerHTML = playerTemplate
     }
+    function updateMyTeam() {
+        debugger
+        var myPlayers = playerService.getMyTeam()
+        var myElem = document.getElementById('my-area')
+        myElem.innerHTML = ''
+        var myTemplate = ''
+        for (var i in myPlayers) {
+            var myPlayer = myPlayers[i];
+            myPlayer.photo = myPlayer.photo.replace('http:', '')
+            myTemplate += `
+            <div class="player-card col-sm-12 col-md-2">
+            <img src="${myPlayer.photo}" default="//sports.cbsimg.net/images/players/unknown-player-170x170.png" width="170">
+            <h3>${myPlayer.fullname}</h3>
+            <h5>Team: ${myPlayer.pro_team}</h5>
+            <h5>Pos: ${myPlayer.position}</h5>
+            <button id="${myPlayer.id}" onclick="app.controllers.playerController.addToMyTeam('${myPlayer.id}')">Add to Team</button>
+            </div>
+
+            `
+        }
+        myElem.innerHTML = myTemplate
+    }
+    
     //^^^^^^^^^^^^^^^^^^^PRIVATE PARTS^^^^^^^^^^^^^^^
 
     
     //-------------------PUBLIC PARTS----------------
     this.filterTeam = function filterTeam(teamName) {
         currentFilter = playerService.getPlayersByTeam(teamName)
-        updateRoster(playerService.getPlayersByTeam(teamName))
-        console.log(playerService.getPlayersByTeam(teamName))
+        updateRoster(currentFilter)
+        // console.log(playerService.getPlayersByTeam(teamName))
+        console.log(currentFilter)
+        return currentFilter
     }
     this.filterPosition = function filterPosition(position) {
         playerService.getPlayersByPosition(position)
@@ -56,9 +81,14 @@ function PlayerController() {
         console.log(playerService.getPlayersByName(name)) //look into HTMLInput.value or something like that
     }
 
-    this.addToMyTeam = function addToMyTeams(id){
-        playerService.addToMyTeam(id)
+    this.addToMyTeam = function addToMyTeam(id){
+        playerService.addToMyTeam(id) //NEED TO GET THE CURRENTFILTER TO UPDATE CORRECTLY
+        playerService.getPlayersByTeam()
         updateRoster(currentFilter)
+        updateMyTeam()
+        // updateRoster(filterTeam(teamName))
+        console.log(currentFilter)
     }
     //^^^^^^^^^^^^^^^^^^^PUBLIC PARTS^^^^^^^^^^^^^^^^
+    //updateRoster(currentFilter)
 }

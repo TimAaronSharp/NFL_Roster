@@ -17,11 +17,11 @@
         <div class="panel">
             <header>My NFL Roster</header>
             <div id="player-roster">
-                <button id="dummy-button" onclick="app.controllers.playerController.filterTeam('SF')"></button>
-                <button id="dummy-button2" onclick="app.controllers.playerController.filterPosition('LB')"></button>
+                <button id="dummy-button" onclick="app.controllers.playerController.filterTeam('SF')">Team</button>
+                <button id="dummy-button2" onclick="app.controllers.playerController.filterPosition('LB')">Position</button>
                 <select id="">
                     <option id="SBT">Search by Team</option>
-                    <option id="ARI">Arizona Cardinals</option>
+                    <option id="ARI" value="" onclick="app.controllers.playerController.filterTeam('ARI')">Arizona Cardinals</option>
                     <option id="ATL">Atlanta Falcons</option>
                     <option id="BAL">Baltimore Ravens</option>
                     <option id="BUF">Buffalo Bills</option>
@@ -66,21 +66,24 @@
                     <!-- C, D, DB, DL, DST, K, LB, P, QB, RB, ST, TE, TQB, WR -->
                 </select>
                 <div class="row" id="image-area">
+                    
 
                 </div>
                 <form id="name-form">
                     <input type="text" name="" id="name-field" value="Search by Last Name">
                     <input type="button" onclick="app.controllers.playerController.filterName()" name="" id="" value="Search">
                 </form>
+
+                <!-- <img src="http://s.nflcdn.com/static/content/public/image/fantasy/transparent/200x200/" alt=""> -->
                 
-                    <!-- <img src="http://s.nflcdn.com/static/content/public/image/fantasy/transparent/200x200/" alt=""> -->
-                    </form>
-                
+
 
             </div>
 
             <div id="my-team">
+                <div class="row" id="my-area">
 
+                </div>
             </div>
 
         </div>
