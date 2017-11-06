@@ -19,10 +19,9 @@ function PlayerController() {
     }
     function drawNameList(){
         var names = playerService.getNames()
-        debugger
         var nameElem = document.getElementById('nameDropdown')
         nameElem.innerHTML = ''
-        var nameTemplate = ''
+        var nameTemplate = '<option>Select by Name</option>'
         for (var i = 0; i < names.length; i++) {
             var name = names[i];
             nameTemplate += `
@@ -38,7 +37,7 @@ function PlayerController() {
         //debugger
         var elem = document.getElementById('player-roster')
         elem.innerHTML = ''
-        var playerTemplate = ''
+        var playerTemplate = '<h1 class="text-center">NFL ROSTER</h1>'
         for (var i in currentPlayerData) {
             var player = currentPlayerData[i];
             player.photo = player.photo.replace('http:', '')
@@ -58,9 +57,9 @@ function PlayerController() {
     function updateMyTeam() {
         // debugger
         var myPlayers = playerService.getMyTeam()
-        var myElem = document.getElementById('my-area')
+        var myElem = document.getElementById('my-team')
         myElem.innerHTML = ''
-        var myTemplate = ''
+        var myTemplate = '<h1 class="text-center">MY TEAM</h1>'
         for (var i in myPlayers) {
             var myPlayer = myPlayers[i];
             myPlayer.photo = myPlayer.photo.replace('http:', '')

@@ -1,10 +1,27 @@
 body {
-  background: lightgray;
+  background-image: url("football-field.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.row {
+  display: block;
+}
+
+h1 {
+  text-align: middle;
 }
 
 .player-card {
   min-height: 380px;
-  outline: 5px solid black;
+  border: 2px solid black;
+  border-radius: 5px;
+  background: rgba(92, 92, 92, 0.5);
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-left: 8px;
+  padding-right: 5px;
 }
 
 .player-card button {

@@ -14,8 +14,6 @@
 
 <body>
     <div class="container">
-        <!-- <div class="panel"> -->
-        <header>My NFL Roster</header>
         <form name="teamForm" action="">
             <select name="nameList" class="nameList" onchange="app.controllers.playerController.handleSelect(this.form)">
                 <option id="SBT">Search by Team</option>
@@ -79,16 +77,8 @@
 
             </select>
         </form>
-        <div id="player-roster">
-            <!-- <button id="dummy-button" onclick="app.controllers.playerController.searchFor('team', 'SF')">Team</button>
-                <button id="dummy-button2" onclick="app.controllers.playerController.searchFor('position', 'LB')">Position</button>
-                <button id="dummy-button" onclick="app.controllers.playerController.searchFor('lastname', 'Adams')">Name</button> -->
-            <!-- "app.controllers.playerController.searchFor('team', 'searchValue')" -->
+        <div class="row" id="player-roster">
 
-            <div class="row" id="image-area">
-
-
-            </div>
 
             <!-- <img src="http://s.nflcdn.com/static/content/public/image/fantasy/transparent/200x200/" alt=""> -->
 
@@ -96,10 +86,10 @@
 
         </div>
 
-        <div id="my-team">
-            <div class="row" id="my-area">
+        <div class="row" id="my-team">
 
-            </div>
+
+
         </div>
 
         <!-- </div> -->
