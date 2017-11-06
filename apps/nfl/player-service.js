@@ -52,7 +52,7 @@ function PlayerService(ready) {
     this.getPlayersByName = function getPlayersByName(name) {
         //return an array of all players who match the given position.
         return playersData.filter(function (player) {
-            if (player.lastname == name) {
+            if (player.fullname == name) {
                 return playersData
             }
         })

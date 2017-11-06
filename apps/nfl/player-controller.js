@@ -26,7 +26,7 @@ function PlayerController() {
         for (var i = 0; i < names.length; i++) {
             var name = names[i];
             nameTemplate += `
-            <option value="lastname" id="${name.id}>${name.fullname}"></option>
+            <option value="lastname" id="${name.fullname}">${name.fullname}</option>
             
             `
         }
