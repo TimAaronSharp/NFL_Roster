@@ -5,14 +5,10 @@ function PlayerController() {
     var currentSearchType = ''
     var currentSearchValue = ''
 
-    // playerService.getPlayersByTeam(ready)
-    // playerService.getPlayersByPosition(ready)
-    // playerService.getPlayersByName(ready)
     function ready(playersData) {
         loading = false; //stop the spinner
 
         //Now that all of our player data is back we can safely setup our bindings for the rest of the view.
-        // updateRoster(playersData)
         $('some-button').on('click', function () {
             var teamSF = playerService.getPlayersByTeam("SF");
         })
@@ -34,7 +30,6 @@ function PlayerController() {
     drawNameList()
 
     function updateRoster(currentPlayerData) {
-        //debugger
         var elem = document.getElementById('player-roster')
         elem.innerHTML = ''
         var playerTemplate = '<h1 class="text-center">NFL ROSTER</h1>'
@@ -55,7 +50,6 @@ function PlayerController() {
         }
     }
     function updateMyTeam() {
-        // debugger
         var myPlayers = playerService.getMyTeam()
         var myElem = document.getElementById('my-team')
         myElem.innerHTML = ''
@@ -119,16 +113,12 @@ function PlayerController() {
         
         this.searchFor(currentSearchType, currentSearchValue)
         updateMyTeam()
-        // console.log(currentFilter)
     }
     this.removeFromMyTeam = function removeFromMyTeam(id){
         playerService.removeFromMyTeam(id)
         
         this.searchFor(currentSearchType, currentSearchValue)
         updateMyTeam()
-        // console.log(currentFilter)
     }
-    //^^^^^^^^^^^^^^^^^^^PUBLIC PARTS^^^^^^^^^^^^^^^^
-    //updateRoster(currentFilter)
-    
+    //^^^^^^^^^^^^^^^^^^^PUBLIC PARTS^^^^^^^^^^^^^^^^    
 }
